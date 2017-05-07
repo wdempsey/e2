@@ -19,8 +19,8 @@ network can be found [here](http://www3.nd.edu/~networks/resources/actor/actor.d
 4. [airport.R](airport.R): Model fitting procedure for airport network. Additional information on
 airport network can be found [here](https://toreopsahl.com/datasets/).
 5. [karate.R](karate.R): Model fitting procedure for karate club network. Additional information on
-airport network can be found [here](http://vlado.fmf.uni-lj.si/pub/networks/data/Ucinet/zachary.dat)
+Zachary's karate club network can be found [here](http://math.bu.edu/people/kolaczyk/datasets.html)
 6. [wiki.R](wiki.R): Model fitting procedure for Wikipedia network. Additional information on
-airport network can be found [here](http://snap.stanford.edu/data/wiki-Vote.html)
+Wikipedia network can be found [here](http://snap.stanford.edu/data/wiki-Vote.html)
 
 
