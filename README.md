@@ -1,12 +1,12 @@
-## Edge exchangeability and interaction processes ##
+## Edge exchangeable models for interaction processes ##
 
-Supporting code for "Edge exchangeable models for network data"
+Supporting code for "Edge exchangeable models for interaction processes"
 
 File Descriptions:
 
 ### General files ###
 
-1. [functions.R](functions.R): Contains all functions used inmodel
+1. [functions.R](functions.R): Contains all functions used in model
 fitting and simulations.
 2. [simulation.R](simulation.R): Contains simulation from the
 Hollywood model. Then fitting procedures via SBM and ERGM.
