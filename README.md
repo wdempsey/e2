@@ -1,12 +1,12 @@
-## Edge exchangeability and interaction processes ##
+## Edge exchangeable models for interaction processes ##
 
-Supporting code for "Edge exchangeable models for network data"
+Supporting code for "Edge exchangeable models for interaction processes"
 
 File Descriptions:
 
 ### General files ###
 
-1. [functions.R](functions.R): Contains all functions used inmodel
+1. [functions.R](functions.R): Contains all functions used in model
 fitting and simulations.
 2. [simulation.R](simulation.R): Contains simulation from the
 Hollywood model. Then fitting procedures via SBM and ERGM.
@@ -18,7 +18,9 @@ related to actors network. Additional information on actors
 network can be found [here](http://www3.nd.edu/~networks/resources/actor/actor.dat.gz).
 4. [airport.R](airport.R): Model fitting procedure for airport network. Additional information on
 airport network can be found [here](https://toreopsahl.com/datasets/).
-5. [karate.R](karate.R): Model fitting procedure for karate club network. 
-6. [wiki.R](wiki.R): Model fitting procedure for Wikipedia network. 
+5. [karate.R](karate.R): Model fitting procedure for karate club network. Additional information on
+Zachary's karate club network can be found [here](http://math.bu.edu/people/kolaczyk/datasets.html)
+6. [wiki.R](wiki.R): Model fitting procedure for Wikipedia network. Additional information on
+Wikipedia network can be found [here](http://snap.stanford.edu/data/wiki-Vote.html)
 
 
