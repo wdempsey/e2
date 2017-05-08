@@ -45,13 +45,19 @@ airport.hat.negative <- function(init, num.vertices, num.edges, deg) {
 }
 
 
+## Inf pop case: 0 < \alpha < 1
 init= c(0.5,1)
 positive.output = airport.hat.positive(init,num.vertices,num.edges,deg)
 pos.airport.info = hessian(func=airport.log.lik(num.vertices,num.edges, deg), x=positive.output$par)
-pos.airport.stderr = sqrt(diag(solve(airport.info)))
+pos.airport.stderr = sqrt(diag(solve(pos.airport.info)))
 cbind(positive.output$par,pos.airport.stderr)
 positive.output$value/10^9
 
+## Comparison to Yule Law
+alpha.hat(deg)
+
+
+## Finite case:
 init = -5
 negative.output = airport.hat.negative(init,num.vertices,num.edges,deg)
 neg.airport.info = hessian(func=airport.log.lik(num.vertices,num.edges, deg), x=negative.output$par)

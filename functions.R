@@ -231,8 +231,8 @@ sbm.powerlaw <- function(sbm.model) {
 
     M.sim = matrix(0,nrow = nr, ncol = nc)
 
-    for(i in 1:(nrow(M)-1)) {
-        for (j in (i+1):ncol(M)) {
+    for(i in 1:(nrow(M.sim)-1)) {
+        for (j in (i+1):ncol(M.sim)) {
             m.i = sample(1:best.ICL,size=1,prob=membership[i,])
             m.j = sample(1:best.ICL,size=1,prob=membership[j,])
             M.sim[i,j] = rbinom(n = 1, size = 1, prob = pi[m.i, m.j])
@@ -256,3 +256,25 @@ construct.edges <- function(interaction) {
 }
 
 choose.two <- function(x) {choose(x,2)}
+
+
+### Finite Case Functions
+mg.finite.log.lik <- function(edge.set, deg) {
+  num.edges <- nrow(edge.set)
+  num.vertices <- length(deg)
+  max.vertices = num.vertices
+  llik <- function(alpha) {
+    theta = -alpha*max.vertices;
+    return(-1 *(
+      (lgamma(num.vertices+1)) -
+        (lgamma(2*num.edges+theta) - lgamma(theta)) +
+        num.vertices*log(-alpha) +
+        sum(lgamma(deg[deg>1]-alpha) - lgamma(1-alpha))
+    ))
+  }
+  return(llik)
+}
+
+mg.finite.hat <- function(init, edge.set, deg) {
+  return(optim(init,mg.finite.log.lik(edge.set, deg), lower = -Inf, upper = 0 )$par)
+}

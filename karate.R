@@ -1,29 +1,9 @@
 karate <- read.csv("./data/zachary-weighted.txt",header=FALSE,sep=" ")
 karate <- as.matrix(karate)
 
-### Finite Case Functions
-mg.finite.log.lik <- function(edge.set, deg) {
-  num.edges <- nrow(edge.set)
-  num.vertices <- length(deg)
-  max.vertices = num.vertices
-  llik <- function(alpha) {
-    theta = -alpha*max.vertices;
-    return(-1 *(
-      (lgamma(num.vertices+1)) -
-        (lgamma(2*num.edges+theta) - lgamma(theta)) +
-        num.vertices*log(-alpha) +
-        sum(lgamma(deg[deg>1]-alpha) - lgamma(1-alpha))
-    ))
-  }
-  return(llik)
-}
+source("./functions.R")
 
-mg.finite.hat <- function(init, edge.set, deg) {
-  return(optim(init,mg.finite.log.lik(edge.set, deg), lower = -Inf, upper = 0 )$par)
-}
-
-
-### Construct Egde Set
+### Construct Edge Set
 deg = rowSums(karate)
 edge.set = matrix(nrow = 1, ncol = 2)
 
